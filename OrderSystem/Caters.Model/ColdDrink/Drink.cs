@@ -9,5 +9,6 @@ namespace Caters.Model.ColdDrink
     interface IDrink
     {
         string DrinkType { get; set; }
+
     }
 }
