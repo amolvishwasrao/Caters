@@ -10,7 +10,7 @@ namespace Caters.Model.ColdDrink
     {
         public string DrinkType { get; set; }
 
-        public int MyProperty { get; set; }
+        public int Temp { get; set; }
 
 
     }
