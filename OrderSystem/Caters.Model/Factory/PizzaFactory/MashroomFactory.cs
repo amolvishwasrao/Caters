@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Caters.Model.Common;
+using Caters.Model.Pizza;
+
+namespace Caters.Model.Factory.PizzaFactory
+{
+    class MashroomFactory:FoodFactory
+    {
+        public override Food GetFood()
+        {
+            return new Mashroom();
+        }
+    }
+}

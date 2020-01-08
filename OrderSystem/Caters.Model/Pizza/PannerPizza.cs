@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Caters.Model.Pizza
 {
-    interface IPizza
+    public class PannerPizza:Pizza
     {
-        string Name { get; set; }
-
-        string Size { get; set; }
+        public PannerPizza()
+        {
+            this.TypeOfFood = "Panner Pizza";
+            this.price = 250;
+        }
     }
 }

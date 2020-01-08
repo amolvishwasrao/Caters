@@ -41,16 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColdDrink\Drink.cs" />
-    <Compile Include="ColdDrink\Sevenup.cs" />
-    <Compile Include="Pizza\CheeseBurst.cs" />
-    <Compile Include="Pizza\IPizza.cs" />
+    <Compile Include="Common\Food.cs" />
+    <Compile Include="Customize\Bread.cs" />
+    <Compile Include="Customize\BrownBread.cs" />
+    <Compile Include="Customize\CheeseTopping.cs" />
+    <Compile Include="Customize\Cutomize.cs" />
+    <Compile Include="Customize\DrinkTop.cs" />
+    <Compile Include="Customize\SauceTopping.cs" />
+    <Compile Include="Customize\Softy.cs" />
+    <Compile Include="Customize\Toppings.cs" />
+    <Compile Include="Customize\WhiteBread.cs" />
+    <Compile Include="Factory\FoodFactory.cs" />
+    <Compile Include="Factory\PizzaFactory\MashroomFactory.cs" />
+    <Compile Include="Factory\PizzaFactory\PannerFactory.cs" />
+    <Compile Include="Order\Order.cs" />
+    <Compile Include="Pizza\Mashroom.cs" />
+    <Compile Include="Pizza\PannerPizza.cs" />
+    <Compile Include="Pizza\Pizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sandwitch\ISandwitch.cs" />
-    <Compile Include="Sandwitch\PannerSandwitch.cs" />
+    <Compile Include="Quote\Price.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
+    <Folder Include="ColdDrink\" />
+    <Folder Include="Sandwitch\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

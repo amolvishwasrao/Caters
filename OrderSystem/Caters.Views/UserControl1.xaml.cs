@@ -23,6 +23,7 @@ namespace Caters.Views
         public UserControl1()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.OrderPlacementViewModel();
         }
     }
 }

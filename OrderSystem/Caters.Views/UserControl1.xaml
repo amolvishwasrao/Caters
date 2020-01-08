@@ -5,8 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Caters.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Height="20" Text="Pizza"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Mashroom"></CheckBox>
+                    <Button Content="Sub" Command="{Binding SubCommand}" CommandParameter="Mashroom"></Button>
+                    <TextBlock Text="{Binding MashroomCount, Mode=TwoWay}" />
+                    <Button Content="Add" Command="{Binding AddCommand}" CommandParameter="Mashroom"></Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Panner"></CheckBox>
+                    <TextBlock Text="{Binding PannerCount}" />
+                </StackPanel>
+
+            </StackPanel>
+            
+            
+        </Grid>
         
     </Grid>
 </UserControl>

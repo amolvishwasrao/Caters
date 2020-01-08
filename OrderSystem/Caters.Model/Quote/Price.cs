@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caters.ViewModel
+namespace Caters.Model.Quote
 {
-    public class Class1
+    interface IPrice
     {
+         decimal price { get; set; }
     }
 }
