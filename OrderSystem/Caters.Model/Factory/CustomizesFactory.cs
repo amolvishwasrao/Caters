@@ -1,5 +1,4 @@
-﻿using Caters.Model.Common;
-using System;
+﻿      using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Caters.Model.Factory
 {
-   public abstract class FoodFactory
+    public abstract class CustomizesFactory
     {
-        public abstract Food GetFood();
+        public abstract Customize.Cutomize GetCutomize();
+            
     }
 }

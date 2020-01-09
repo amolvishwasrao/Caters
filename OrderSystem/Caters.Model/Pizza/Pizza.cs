@@ -10,17 +10,12 @@ namespace Caters.Model.Pizza
     public class Pizza : Food
     {
 
-        private string _TypeOFfood;
 
         public Pizza()
         {
             this.TypeOfFood = "Pizza";
         }
-        public override string TypeOfFood
-        {
-            get { return _TypeOFfood; }
-            set { value = _TypeOFfood; }
-        }
+      
 
         
     }

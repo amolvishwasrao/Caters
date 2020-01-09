@@ -14,6 +14,7 @@ namespace Caters.Model.Pizza
         {
             this.TypeOfFood = "MashroomPizza";
             this.price = 350;
+            this._customization = new List<Customize.Cutomize>();
            
         }
         

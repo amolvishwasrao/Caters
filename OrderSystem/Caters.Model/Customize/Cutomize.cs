@@ -16,12 +16,6 @@ namespace Caters.Model.Customize
         public abstract string CustomizeName { get; set; }
     }
 
-    public enum CustomizeTypeParent
-    {
-        Bread,
-        Pizza,
-        Drink
-
-    }
+  
 
 }

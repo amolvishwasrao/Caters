@@ -8,7 +8,7 @@ using Caters.Model.Pizza;
 
 namespace Caters.Model.Factory.PizzaFactory
 {
-    class PannerFactory : FoodFactory
+    public class PannerFactory : FoodFactory
     {
         public override Food GetFood()
         {

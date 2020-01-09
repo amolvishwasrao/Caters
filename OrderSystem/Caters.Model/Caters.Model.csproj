@@ -51,6 +51,12 @@
     <Compile Include="Customize\Softy.cs" />
     <Compile Include="Customize\Toppings.cs" />
     <Compile Include="Customize\WhiteBread.cs" />
+    <Compile Include="Factory\CustomizesFactory.cs" />
+    <Compile Include="Factory\CustomizeFactory\BrownBreadFactory.cs" />
+    <Compile Include="Factory\CustomizeFactory\CheeseToppingFactory.cs" />
+    <Compile Include="Factory\CustomizeFactory\SauceToppingFactory.cs" />
+    <Compile Include="Factory\CustomizeFactory\SoftyFactory.cs" />
+    <Compile Include="Factory\CustomizeFactory\WhiteBreadFactory.cs" />
     <Compile Include="Factory\FoodFactory.cs" />
     <Compile Include="Factory\PizzaFactory\MashroomFactory.cs" />
     <Compile Include="Factory\PizzaFactory\PannerFactory.cs" />
