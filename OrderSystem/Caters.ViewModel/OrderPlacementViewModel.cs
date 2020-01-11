@@ -85,7 +85,7 @@ namespace Caters.ViewModel
         public List<CustomizationOption> PizzaSandwitchCustomOptions
         {
             get { return _PizzaSandwitchCustomOptions; }
-            set { _PizzaSandwitchCustomOptions = value; OnPropertyRaised("PizzaSandwitchCustomOptions"); }
+            set { _PizzaSandwitchCustomOptions = value; }//OnPropertyRaised("PizzaSandwitchCustomOptions"); 
         }
 
 
