@@ -41,35 +41,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColdDrink\ColdDrink.cs" />
+    <Compile Include="ColdDrink\SevenUp.cs" />
     <Compile Include="Common\Food.cs" />
     <Compile Include="Customize\Bread.cs" />
     <Compile Include="Customize\BrownBread.cs" />
     <Compile Include="Customize\CheeseTopping.cs" />
+    <Compile Include="Customize\Cream.cs" />
     <Compile Include="Customize\Cutomize.cs" />
     <Compile Include="Customize\DrinkTop.cs" />
     <Compile Include="Customize\SauceTopping.cs" />
     <Compile Include="Customize\Softy.cs" />
     <Compile Include="Customize\Toppings.cs" />
     <Compile Include="Customize\WhiteBread.cs" />
+    <Compile Include="Factory\CustomizeFactory\CreamFactory.cs" />
     <Compile Include="Factory\CustomizesFactory.cs" />
     <Compile Include="Factory\CustomizeFactory\BrownBreadFactory.cs" />
     <Compile Include="Factory\CustomizeFactory\CheeseToppingFactory.cs" />
     <Compile Include="Factory\CustomizeFactory\SauceToppingFactory.cs" />
     <Compile Include="Factory\CustomizeFactory\SoftyFactory.cs" />
     <Compile Include="Factory\CustomizeFactory\WhiteBreadFactory.cs" />
+    <Compile Include="Factory\DrinkFactory\SevenUpFactory.cs" />
     <Compile Include="Factory\FoodFactory.cs" />
     <Compile Include="Factory\PizzaFactory\MashroomFactory.cs" />
     <Compile Include="Factory\PizzaFactory\PannerFactory.cs" />
+    <Compile Include="Factory\SandwitchFactory\BombayFactory.cs" />
     <Compile Include="Order\Order.cs" />
     <Compile Include="Pizza\Mashroom.cs" />
     <Compile Include="Pizza\PannerPizza.cs" />
     <Compile Include="Pizza\Pizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quote\Price.cs" />
+    <Compile Include="Sandwitch\BombaySandwitch.cs" />
+    <Compile Include="Sandwitch\Sandwitch.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ColdDrink\" />
-    <Folder Include="Sandwitch\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

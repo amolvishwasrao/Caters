@@ -11,7 +11,7 @@ namespace Caters.Model.Common
     {
         public  string TypeOfFood { get; set; }
         public decimal price { get; set; }
-        public List<Customize.Cutomize> _customization { get; set; }
+        public List<Customize.Cutomize> Customization { get; set; }
     }
 
 

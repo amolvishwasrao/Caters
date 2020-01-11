@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Caters.Model.Customize
 {
-    public class SauceTopping : Toppings
+   public class Cream:DrinkTop
     {
-        public SauceTopping()
+        public Cream()
         {
-            this.CustomizeName = "SauceTopping";
-            this.price = 15;
-
+            this.CustomizeName = "Cream on drink";
+            this.price = 80;
         }
     }
 }

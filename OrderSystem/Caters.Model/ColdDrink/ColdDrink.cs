@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caters.Model.Order
+namespace Caters.Model.ColdDrink
 {
-    public class Order
+   public  class ColdDrink:Food
     {
-        public List<Food> Foods { get; set; }
+        public ColdDrink()
+        {
+            this.TypeOfFood = "ColdDrink";
+        }
     }
 }

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caters.Model.Pizza
+namespace Caters.Model.ColdDrink
 {
-    public class PannerPizza:Pizza
+   public  class SevenUp:ColdDrink
     {
-        public PannerPizza()
+        public SevenUp()
         {
-            this.TypeOfFood = "Panner Pizza";
-            this.price = 250;
+            this.TypeOfFood = "SevenUp";
+            this.price = 150;
             this.Customization = new List<Customize.Cutomize>();
         }
     }

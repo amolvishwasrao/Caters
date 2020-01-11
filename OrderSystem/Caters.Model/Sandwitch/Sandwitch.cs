@@ -5,10 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Caters.Model.Order
+namespace Caters.Model.Sandwitch
 {
-    public class Order
+    public class Sandwitch:Food
     {
-        public List<Food> Foods { get; set; }
+        public Sandwitch()
+        {
+            this.TypeOfFood = "SandWitch";
+
+        }
     }
 }
