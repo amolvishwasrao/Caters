@@ -1,10 +1,20 @@
-Select check box which proct user want to pick.
+USER Steps-
+
+Select check box which product user want to pick.
 select the quantity by click add/sub
 if user dont want to cutomize directly click on Add Order button in the same line of product link.
 if want to cuctomize the prodcut select the item in the cart by selecting the number in drop down then select the option from the
 drop down which is on side of the selection number.use check box to update your selctiom.
 
 the Scroll bar below shows the item selected with the Custom items in it wit Prices.
+
+
+Developer document-
+1.WPF WITH MVVM PATTERN
+2.COMMAND DESIGN PATERN USING ICOMMAND
+3.Notification by Using INOTIFYPROPERTYCHANGES.
+4.MODEL USING FACTORY DESIGN PATTERN
+
 
 
 
