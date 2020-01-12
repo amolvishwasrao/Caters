@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Caters.Model;
@@ -31,10 +32,12 @@ namespace Caters.ViewModel
             AddOrderCommand = new RelayCommand.RelayCommand(AddCustomToOrder);
             Foods = new ObservableCollection<Model.Common.Food>();
             PizzaSandwitchCustomOptions = new List<CustomizationOption>();
+            
 
-        } 
+        }
         #endregion
 
+        #region Properties
         private Model.Order.Order _Order;
 
         public Order Order
@@ -81,11 +84,11 @@ namespace Caters.ViewModel
 
 
         private List<CustomizationOption> _PizzaSandwitchCustomOptions;
-            
+
         public List<CustomizationOption> PizzaSandwitchCustomOptions
         {
             get { return _PizzaSandwitchCustomOptions; }
-            set { _PizzaSandwitchCustomOptions = value; }//OnPropertyRaised("PizzaSandwitchCustomOptions"); 
+            set { _PizzaSandwitchCustomOptions = value; OnPropertyRaised("PizzaSandwitchCustomOptions"); }  
         }
 
 
@@ -93,7 +96,7 @@ namespace Caters.ViewModel
         public int MashroomCount
         {
             get { return _MashroomCount; }
-            set { _MashroomCount = value; OnPropertyRaised("MashroomCount");  }
+            set { _MashroomCount = value; OnPropertyRaised("MashroomCount"); }
         }
 
 
@@ -120,13 +123,7 @@ namespace Caters.ViewModel
             set { _MashroomsCustomNos = value; OnPropertyRaised("MashroomsCustomNos"); ResetSelection(); }
         }
 
-        private void ResetSelection()
-        {
-            if (PizzaSandwitchCustomOptions == null) return;
-            foreach (var item in PizzaSandwitchCustomOptions)
-                item.IsSelect = false;
-            
-        }
+
 
         private ObservableCollection<int> _PannerCustomNos;
 
@@ -141,7 +138,7 @@ namespace Caters.ViewModel
         public ObservableCollection<int> SevenUpCustomNos
         {
             get { return _SevenUpCustomNos; }
-            set { _SevenUpCustomNos = value; OnPropertyRaised("SevenUpCustomNos"); ResetSelection(); }
+            set { _SevenUpCustomNos = value; OnPropertyRaised("SevenUpCustomNos");  }
         }
 
 
@@ -150,7 +147,7 @@ namespace Caters.ViewModel
         public int SelectedIndex
         {
             get { return _SelectedIndex; }
-            set { _SelectedIndex = value; OnPropertyRaised("SelectedIndex"); }
+            set { _SelectedIndex = value; OnPropertyRaised("SelectedIndex"); ResetSelection(); }
         }
 
         private List<Caters.Model.Customize.Cutomize> _Customizations;
@@ -164,11 +161,12 @@ namespace Caters.ViewModel
 
         private ObservableCollection<Caters.Model.Common.Food> _Foods;
 
-        public ObservableCollection< Caters.Model.Common.Food> Foods
+        public ObservableCollection<Caters.Model.Common.Food> Foods
         {
             get { return _Foods; }
             set { _Foods = value; }
-        }
+        } 
+        #endregion
 
         #region Command Add,Sub,Custom
         private ICommand _AddCommand;
@@ -212,23 +210,35 @@ namespace Caters.ViewModel
 
         #endregion
 
+        #region Methods
+        #region Reser Selection for different Options
+        private void ResetSelection()
+        {
+            if (PizzaSandwitchCustomOptions == null) return;
+            foreach (var item in PizzaSandwitchCustomOptions)
+                item.IsSelect = false;
+
+        }
+        #endregion
+
+        #region Message string which shows the Order items in scroll bar
         private void CustomMessage()
         {
             CustomMessageString = string.Empty;
 
             if (Foods == null) return;
-            
+
             try
             {
                 foreach (var item in Foods)
                 {
-                    CustomMessageString = "   "+ CustomMessageString + item.TypeOfFood + "of base price " + item.price + Environment.NewLine;
+                    CustomMessageString = "   " + CustomMessageString + item.TypeOfFood + "of base price " + item.price + Environment.NewLine;
                     foreach (var initem in item.Customization)
                     {
                         CustomMessageString = CustomMessageString + "Custom-" + initem.CustomizeName + " withprice " + initem.price + Environment.NewLine + Environment.NewLine;
                     }
-                    
-                       
+
+
                 }
             }
             catch (Exception ex)
@@ -237,8 +247,9 @@ namespace Caters.ViewModel
                 throw ex;
             }
 
-            
+
         }
+        #endregion
 
         #region Command on selection change of Choice from UI
         private void Custom(object obj)
@@ -257,17 +268,25 @@ namespace Caters.ViewModel
 
                 throw;
             }
-           
 
-        } 
+
+        }
         #endregion
 
         #region Adding Customizaion of user into the selected item in Cart
-        private void AddCustomizationToFood(Caters.Model.Factory.CustomizesFactory customizefood, ObservableCollection<Caters.Model.Common.Food> Foods, string compare)
+        public void AddCustomizationToFood(Caters.Model.Factory.CustomizesFactory customizefood, ObservableCollection<Caters.Model.Common.Food> Foods, string compare)
         {
-            if (SelectedIndex == 0) return;
+            if (SelectedIndex <= 0)
+            {
+                MessageBox.Show("Select the Item number to be cosutomized from drop down");
+                ResetSelection();
+                return;
+            }
+
             try
             {
+                if (Foods.Count < SelectedIndex)
+                    return;
                 Caters.Model.Common.Food tempfood = Foods.Where(p => p.TypeOfFood.Contains(compare as string)).ToList()[SelectedIndex - 1];
 
                 foreach (var item in PizzaSandwitchCustomOptions)
@@ -381,6 +400,7 @@ namespace Caters.ViewModel
                 }
 
                 Order.Foods = Foods.ToList();
+                
             }
             catch (Exception ex)
             {
@@ -390,12 +410,14 @@ namespace Caters.ViewModel
         }
         #endregion
 
+        #region Add to custom button click
         private void AddCustomToOrder(object obj)
-        { 
+        {
 
             Order.Foods = Foods.ToList();
             CustomMessage();
         }
+        #endregion
 
         #region Static Data for Choice in UI can be replaced by Database data 
         private void addDummyData(Model.Factory.FoodFactory food)
@@ -415,7 +437,7 @@ namespace Caters.ViewModel
             }
 
 
-        } 
+        }
         #endregion
 
         #region Add Count in UI and drop down list to user select the choice on selection
@@ -457,9 +479,9 @@ namespace Caters.ViewModel
                 throw ex;
             }
 
-       
 
-        } 
+
+        }
         #endregion
 
         #region Substract the Count as User Clickon "_" button on UI
@@ -500,8 +522,8 @@ namespace Caters.ViewModel
 
                 throw;
             }
-          
-        } 
+
+        }
         #endregion
 
         #region Drop down count for customie the selected Index
@@ -533,11 +555,11 @@ namespace Caters.ViewModel
             }
 
 
-           
-        } 
+
+        }
         #endregion
 
-
+        #endregion|
 
         #region INPC implementation
         public event PropertyChangedEventHandler PropertyChanged;
