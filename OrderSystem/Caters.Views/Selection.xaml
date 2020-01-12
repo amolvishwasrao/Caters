@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Caters.Views"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="800">
+             Height="800" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            
 
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -52,7 +52,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <Button Width="150"  IsEnabled="{Binding IsMashroom}" Content="Add To Order" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="Mashroom"></Button>
+                    <Button Width="100" Height="60"  IsEnabled="{Binding IsMashroom}" Content="Add To Order" ToolTip="Click when want to add without customization" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="Mashroom"></Button>
 
                 </StackPanel>
 
@@ -86,7 +86,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <Button Width="150" IsEnabled="{Binding IsMashroom}" Content="Add To Order" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="Mashroom"></Button>
+                    <Button Width="100" Height="60" IsEnabled="{Binding IsMashroom}" Content="Add To Order" Margin="5" ToolTip="Click when want to add without customization"  Command="{Binding AddOrderCommand}" CommandParameter="Mashroom"></Button>
 
                 </StackPanel>
 
@@ -97,7 +97,7 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
-                <RowDefinition />
+                <RowDefinition Height="80" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <TextBlock Height="20" Text="Drinks"/>
@@ -131,7 +131,7 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <Button Width="150"  IsEnabled="{Binding IsSevenUp}" Content="Add To Order" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="SevenUp"></Button>
+                    <Button Width="100" Height="60"  IsEnabled="{Binding IsSevenUp}" Content="Add To Order" ToolTip="Click when want to add without customization" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="SevenUp"></Button>
 
                 </StackPanel>
 
@@ -141,8 +141,8 @@
             
         </Grid>
 
-        <Grid Grid.Row="3" >
-            <ScrollViewer>
+        <Grid Grid.Row="2" >
+            <ScrollViewer Height="150">
                 <TextBlock Text="{Binding CustomMessageString, Mode=TwoWay}"/>
             </ScrollViewer>
             
