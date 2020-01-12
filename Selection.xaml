@@ -1,0 +1,152 @@
+<UserControl x:Class="Caters.Views.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Caters.Views"
+             mc:Ignorable="d"
+             Height="800" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="200"/>
+            
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="80" />
+                <RowDefinition  Height="80"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Height="20" Text="Pizza"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Width="100" VerticalAlignment="Center" ClipToBounds="True" Grid.Row="0" Grid.Column="0" IsChecked="{Binding IsMashroom, Mode=TwoWay}"  Content="Mashroom"  Margin="5" ></CheckBox>
+
+                    <Button VerticalAlignment="Center" IsEnabled="{Binding IsMashroom}" Width="50" Height="50" Margin="5" Content="-" Command="{Binding SubCommand}" CommandParameter="Mashroom"></Button>
+                    <TextBlock VerticalAlignment="Center" Height="20" Margin="5,0,5,0" Text="{Binding MashroomCount, Mode=TwoWay}" />
+                    <Button VerticalAlignment="Center" Height="50" IsEnabled="{Binding IsMashroom}" Content="+" Margin="5" Width="50" Command="{Binding AddCommand}" CommandParameter="Mashroom"></Button>
+
+                    <TextBlock VerticalAlignment="Center" Height="20" Margin="5,0,5,0" Text="Pizza Number to be customized" />
+                    <ComboBox VerticalAlignment="Center" Height="50" IsEnabled="{Binding IsMashroom}" Margin="5" Width="50" ItemsSource="{Binding MashroomsCustomNos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedIndex, Mode=TwoWay}"></ComboBox>
+                    <ComboBox VerticalAlignment="Center" Height="50" Margin="5" IsEnabled="{Binding IsMashroom}" Width="150" ItemsSource="{Binding PizzaSandwitchCustomOptions, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox x:Name="mash" Tag="Mashroom" IsChecked="{Binding IsSelect, Mode=TwoWay}" 
+                                    Command="{Binding DataContext.CustomCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding ElementName=mash
+                                        }"
+                                     Width="20" />
+                                        
+                                              
+                       
+                                    <TextBlock Text="{Binding Name}"
+                       Width="100" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Width="100" Height="60"  IsEnabled="{Binding IsMashroom}" Content="Add To Order" ToolTip="Click when want to add without customization" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="Mashroom"></Button>
+
+                </StackPanel>
+
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Width="100" VerticalAlignment="Center" ClipToBounds="True" Grid.Row="0" Grid.Column="0" IsChecked="{Binding IsPanner, Mode=TwoWay}"  Content="Paneer"  Margin="5" ></CheckBox>
+
+                    <Button  VerticalAlignment="Center" Height="50" IsEnabled="{Binding IsPanner}" Width="50" Margin="5" Content="-" Command="{Binding SubCommand}" CommandParameter="Panner"></Button>
+                    <TextBlock  VerticalAlignment="Center"  Height="20" Margin="5,0,5,0" Text="{Binding PannerCount, Mode=TwoWay}" />
+                    <Button  IsEnabled="{Binding IsPanner}" VerticalAlignment="Center" Height="50" Content="+" Margin="5" Width="50" Command="{Binding AddCommand}" CommandParameter="Panner"></Button>
+                    <TextBlock VerticalAlignment="Center" Height="20" Margin="5,0,5,0" Text="Pizza Numberto be customized" />
+                    <ComboBox  IsEnabled="{Binding IsPanner}" VerticalAlignment="Center" Height="50" Margin="5" Width="50" ItemsSource="{Binding PannerCustomNos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedIndex, Mode=TwoWay}"></ComboBox>
+                    <ComboBox VerticalContentAlignment="Center" Height="50"  Margin="5" IsEnabled="{Binding IsPanner}" Width="150" ItemsSource="{Binding PizzaSandwitchCustomOptions, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox x:Name="panner" Tag="Panner" IsChecked="{Binding IsSelect, Mode=TwoWay}" 
+                                    Command="{Binding DataContext.CustomCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding ElementName=panner
+                                        }"
+                                     Width="20" />
+
+
+
+                                    <TextBlock Text="{Binding Name}"
+                       Width="100" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Width="100" Height="60" IsEnabled="{Binding IsMashroom}" Content="Add To Order" Margin="5" ToolTip="Click when want to add without customization"  Command="{Binding AddOrderCommand}" CommandParameter="Mashroom"></Button>
+
+                </StackPanel>
+
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Height="20" Text="Drinks"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Width="100" VerticalAlignment="Center" ClipToBounds="True" Grid.Row="0" Grid.Column="0" IsChecked="{Binding IsSevenUp, Mode=TwoWay}"  Content="Seven Up"  Margin="5" ></CheckBox>
+
+                    <Button VerticalAlignment="Center" IsEnabled="{Binding IsSevenUp}" Width="50" Height="50" Margin="5" Content="-" Command="{Binding SubCommand}" CommandParameter="SevenUp"></Button>
+                    <TextBlock VerticalAlignment="Center" Height="20" Margin="5,0,5,0" Text="{Binding SevenUpCount, Mode=TwoWay}" />
+                    <Button VerticalAlignment="Center" Height="50" IsEnabled="{Binding IsSevenUp}" Content="+" Margin="5" Width="50" Command="{Binding AddCommand}" CommandParameter="SevenUp"></Button>
+
+                    <TextBlock VerticalAlignment="Center" Height="20" Margin="5,0,5,0" Text="Drinks  to be customized" />
+                    <ComboBox VerticalAlignment="Center" Height="50" IsEnabled="{Binding IsSevenUp}" Margin="5" Width="50" ItemsSource="{Binding SevenUpCustomNos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedIndex, Mode=TwoWay}"></ComboBox>
+                    <ComboBox VerticalAlignment="Center" Height="50" Margin="5" IsEnabled="{Binding IsSevenUp}" Width="150" ItemsSource="{Binding PizzaSandwitchCustomOptions, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox x:Name="seven" Tag="SevenUp" IsChecked="{Binding IsSelect, Mode=TwoWay}" 
+                                    Command="{Binding DataContext.CustomCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding ElementName=seven
+                                        }"
+                                     Width="20" />
+
+
+
+                                    <TextBlock Text="{Binding Name}"
+                       Width="100" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Width="100" Height="60"  IsEnabled="{Binding IsSevenUp}" Content="Add To Order" ToolTip="Click when want to add without customization" Margin="5"  Command="{Binding AddOrderCommand}" CommandParameter="SevenUp"></Button>
+
+                </StackPanel>
+
+
+            </Grid>
+
+            
+        </Grid>
+
+        <Grid Grid.Row="2" >
+            <ScrollViewer Height="150">
+                <TextBlock Text="{Binding CustomMessageString, Mode=TwoWay}"/>
+            </ScrollViewer>
+            
+        </Grid>
+        
+    </Grid>
+</UserControl>
